@@ -1,0 +1,265 @@
+* {
+            font-family: 'Rubik', sans-serif;
+        }
+
+        :root {
+            --ion-color-primary: #8B1538;
+            --ion-color-primary-rgb: 139, 21, 56;
+            --ion-color-primary-contrast: #ffffff;
+
+            --ion-color-success: #2EAF4A;
+            --ion-color-warning: #F4C430;
+            --ion-color-danger: #D32F2F;
+        }
+
+        body,
+        ion-content {
+
+            --background: transparent;
+
+        }
+
+        ion-toolbar {
+
+            --background: #8B1538;
+            --color: white;
+
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
+
+        }
+
+        ion-title {
+
+            font-weight: 700;
+            letter-spacing: .4px;
+
+        }
+
+        ion-menu ion-toolbar {
+
+            --background: #70112D;
+
+        }
+
+        ion-menu ion-content {
+
+            --background: #ffffff;
+
+        }
+
+        ion-list {
+
+            background: transparent;
+
+        }
+
+        ion-item {
+
+            --background: white;
+            --border-radius: 14px;
+
+            margin-bottom: 12px;
+
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .05);
+
+        }
+
+        ion-card {
+
+            border-radius: 18px;
+
+            background: white;
+
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+
+            border-top: 5px solid #8B1538;
+
+        }
+
+        ion-card-header {
+
+            padding-bottom: 8px;
+
+        }
+
+        ion-card-title {
+
+            color: #8B1538;
+
+            font-weight: 700;
+
+        }
+
+        ion-card-subtitle {
+
+            color: #777;
+
+        }
+
+        ion-button {
+
+            height: 48px;
+
+            --border-radius: 14px;
+
+            --background: linear-gradient(135deg,
+                    #8B1538,
+                    #B01F4A);
+
+            font-weight: 600;
+
+        }
+
+        .btn-secundario {
+
+            --background: linear-gradient(135deg,
+                    #7A7A7A,
+                    #5F5F5F);
+
+            --color: white;
+
+            --border-radius: 14px;
+
+        }
+
+        ion-button[fill="outline"] {
+
+            --color: #8B1538;
+            --border-color: #8B1538;
+            --border-width: 2px;
+            --background: white;
+
+        }
+
+        h2 {
+
+            color: #8B1538;
+
+            font-weight: 700;
+
+        }
+
+        p {
+
+            color: #555;
+
+        }
+
+        #txtBienvenida {
+
+            text-align: center;
+
+            margin-top: 20px;
+
+            font-size: 2rem;
+
+        }
+
+        #txtDescripcion {
+
+            text-align: center;
+
+            font-size: 1rem;
+
+            color: #666;
+
+        }
+
+        #map {
+
+            height: 100%;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+
+        }
+
+        ion-datetime-button {
+
+            margin-top: 8px;
+
+        }
+
+        ion-textarea {
+
+            min-height: 90px;
+
+        }
+
+        ion-item ion-label {
+
+            font-weight: 500;
+
+        }
+
+        strong {
+
+            color: #8B1538;
+
+        }
+
+        ion-card ion-item {
+
+            box-shadow: none;
+
+            margin-bottom: 0;
+
+        }
+
+        ion-toolbar {
+
+            --background: linear-gradient(90deg,
+                    #8B1538,
+                    #B01F4A);
+
+        }
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            background:
+                linear-gradient(rgba(255, 248, 250, .65),
+                    rgba(247, 239, 243, .65)),
+                url("img/fondomundialista.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            filter: grayscale(70%) blur(1px);
+
+            z-index: -1;
+
+            pointer-events: none;
+
+        }
+
+        .bandera {
+
+            width: 36px;
+
+            height: 24px;
+
+            object-fit: cover;
+
+            border-radius: 4px;
+
+            margin-right: 14px;
+
+            border: 1px solid rgba(0, 0, 0, .08);
+
+            box-shadow: 0 2px 6px rgba(0, 0, 0, .15);
+
+            background: white;
+
+            flex-shrink: 0;
+
+        }

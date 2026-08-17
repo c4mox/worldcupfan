@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorldCupFan</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <style></style>
+
+</head>
+
+<body>
+
+    <ion-app>
+
+        <!-- RUTEO -->
+
+        <ion-router id="ruteo">
+            <ion-route url="/" component="page-home"></ion-route>
+            <ion-route url="/registro" component="page-registro"></ion-route>
+            <ion-route url="/login" component="page-login"></ion-route>
+            <ion-route url="/agregar" component="page-agregar"></ion-route>
+            <ion-route url="/jugadores" component="page-jugadores"></ion-route>
+            <ion-route url="/estadisticas" component="page-estadisticas"></ion-route>
+            <ion-route url="/mapa" component="page-mapa"></ion-route>
+        </ion-router>
+
+        <ion-nav></ion-nav>
+
+        <!-- MENU -->
+
+        <ion-menu side="start" menu-id="first" content-id="main" id="menu">
+
+            <ion-header>
+                <ion-toolbar color="primary">
+                    <div style="display:flex;justify-content:center;align-items:center;height:56px;">
+                        <img src="img/logo.png" alt="Logo" style="width:24px;height:24px;margin-right:8px;">
+                        <span style="color:white;font-size:22px;font-weight:600;">
+                            WorldCupFan
+                        </span>
+                    </div>
+                </ion-toolbar>
+            </ion-header>
+
+            <ion-content class="ion-padding">
+                <ion-list id="menu-opciones">
+
+                </ion-list>
+            </ion-content>
+
+        </ion-menu>
+
+        <div id="main"></div>
+
+        <!-- HOME -->
+
+        <page-home class="ion-page" id="pantalla-home">
+
+            <ion-header>
+                <ion-toolbar color="primary">
+
+                    <ion-buttons slot="start">
+                        <ion-menu-button></ion-menu-button>
+                    </ion-buttons>
+
+                    <ion-title>WorldCupFan</ion-title>
+
+                </ion-toolbar>
+            </ion-header>
+
+            <ion-content class="ion-padding">
+
+                <ion-card>
+
+                    <ion-card-header>
+
+                        <ion-card-title id="txtBienvenida">
+                            Bienvenido a WorldCupFan
+                        </ion-card-title>
+
+                    </ion-card-header>
+
+                    <ion-card-content id="txtDescripcion">
+
+                        Guarda tus jugadores favoritos del Mundial y consulta sus estadísticas.
+
+                    </ion-card-content>
+
+                </ion-card>
+
+            </ion-content>
+
+        </page-home>
+        <!-- REGISTRO -->
+
+        <page-registro class="ion-page" id="pantalla-registro">
+
+            <ion-header>
+                <ion-toolbar color="primary">
+
+                    <ion-buttons slot="start">
+                        <ion-menu-button></ion-menu-button>
+                    </ion-buttons>
+
+                    <ion-title>Registro</ion-title>
+
+                </ion-toolbar>
+            </ion-header>
+
+            <ion-content class="ion-padding">
+
+                <ion-list inset="true">
+
+                    <ion-item>
+
+                        <ion-input id="txtRegistroUsuario" label="Usuario" label-placement="stacked"
+                            placeholder="Ingrese usuario" clear-input="true">
+                        </ion-input>
+
+                    </ion-item>
+
+                    <ion-item>
+
+                        <ion-input id="txtRegistroPassword" type="password" label="Contraseña" label-placement="stacked"
+                            placeholder="Ingrese contraseña">
+                        </ion-input>
+
+                    </ion-item>
+
+                    <ion-item>
+
+                        <ion-select id="slcPais" label="País" label-placement="stacked"
+                            placeholder="Seleccione un país">
+                        </ion-select>
+
+                    </ion-item>
+
+                </ion-list>
+
+                <ion-button expand="block" shape="round" id="btnRegistrar">
+
+                    Registrarse
+
+                </ion-button>
+
+            </ion-content>
+
+        </page-registro>
+
+        <!-- LOGIN -->
+
+        <page-login class="ion-page" id="pantalla-login">
+
+            <ion-header>
+                <ion-toolbar color="primary">
+
+                    <ion-buttons slot="start">
+                        <ion-menu-button></ion-menu-button>
+                    </ion-buttons>
+
+                    <ion-title>Login</ion-title>
+
+                </ion-toolbar>
+            </ion-header>
+
+            <ion-content class="ion-padding">
+
+                <ion-list inset="true">
+
+                    <ion-item>
+
+                        <ion-input id="txtLoginUsuario" label="Usuario" label-placement="stacked"
+                            placeholder="Ingrese usuario" clear-input="true">
+                        </ion-input>
+
+                    </ion-item>
+
+                    <ion-item>
+
+                        <ion-input id="txtLoginPassword" type="password" label="Contraseña" label-placement="stacked"
+                            placeholder="Ingrese contraseña">
+                        </ion-input>
+
+                    </ion-item>
+
+                </ion-list>
+
+                <ion-button expand="block" shape="round" id="btnLogin">
+
+                    Iniciar sesión
+
+                </ion-button>
+
+                <ion-button expand="block" fill="outline" id="btnIrRegistro">
+
+                    ¿No tienes cuenta? Registrate
+
+                </ion-button>
+
+            </ion-content>
+
+        </page-login>
+
+        <!-- AGREGAR JUGADOR -->
+
+        <page-agregar class="ion-page" id="pantalla-agregar">
+
+            <ion-header>
+                <ion-toolbar color="primary">
+
+                    <ion-buttons slot="start">
+                        <ion-menu-button></ion-menu-button>
+                    </ion-buttons>
+
+                    <ion-title>Agregar Jugador</ion-title>
+
+                </ion-toolbar>
+            </ion-header>
+
+            <ion-content class="ion-padding">
+
+                <ion-list inset="true">
+
+                    <ion-item>
+
+                        <ion-select id="slcSeleccion" label="Selección" label-placement="stacked"
+                            placeholder="Seleccione una selección">
+                        </ion-select>
+
+                    </ion-item>
+
+                    <ion-item>
+
+                        <ion-input id="txtNombreJugador" label="Nombre" label-placement="stacked"
+                            placeholder="Ej: Luis Suárez" clear-input="true">
+                        </ion-input>
+
+                    </ion-item>
+
+                    <ion-item>
+
+                        <ion-select id="slcPosicion" label="Posición" label-placement="stacked"
+                            placeholder="Seleccione una posición">
+                        </ion-select>
+
+                    </ion-item>
+
+                    <ion-item>
+
+                        <ion-label>Fecha de nacimiento</ion-label>
+
+                        <ion-datetime-button datetime="txtFechaNacimiento"></ion-datetime-button>
+
+                    </ion-item>
+
+                    <ion-modal keep-contents-mounted="true">
+
+                        <ion-datetime id="txtFechaNacimiento" presentation="date" locale="es-UY" prefer-wheel="true">
+                        </ion-datetime>
+
+                    </ion-modal>
+
+                    <ion-item>
+
+                        <ion-textarea id="txtComentario" label="Comentario" label-placement="stacked"
+                            placeholder="Escribe un comentario..." auto-grow="true" maxlength="200">
+                        </ion-textarea>
+
+                    </ion-item>
+
+                </ion-list>
+
+                <ion-button expand="block" shape="round" id="btnAgregarJugador">
+
+                    Agregar jugador
+
+                </ion-button>
+
+            </ion-content>
+
+        </page-agregar>
+
+        <!-- JUGADORES -->
+
+        <page-jugadores class="ion-page" id="pantalla-jugadores">
+
+            <ion-header>
+
+                <ion-toolbar color="primary">
+
+                    <ion-buttons slot="start">
+                        <ion-menu-button></ion-menu-button>
+                    </ion-buttons>
+
+                    <ion-title>Jugadores</ion-title>
+
+                </ion-toolbar>
+
+            </ion-header>
+
+            <ion-content class="ion-padding">
+
+                <ion-list inset="true">
+
+                    <ion-item>
+
+                        <ion-select id="slcFiltroSeleccion" label="Filtrar selección" label-placement="stacked"
+                            placeholder="Todas">
+
+                        </ion-select>
+
+                    </ion-item>
+
+                </ion-list>
+
+                <div id="listaJugadores"></div>
+
+            </ion-content>
+
+        </page-jugadores>
+
+        <!-- ESTADISTICAS -->
+
+        <page-estadisticas class="ion-page" id="pantalla-estadisticas">
+
+            <ion-header>
+
+                <ion-toolbar color="primary">
+
+                    <ion-buttons slot="start">
+                        <ion-menu-button></ion-menu-button>
+                    </ion-buttons>
+
+                    <ion-title>Estadísticas</ion-title>
+
+                </ion-toolbar>
+
+            </ion-header>
+
+            <ion-content class="ion-padding">
+
+                <ion-card>
+                    <ion-card-header>
+                        <ion-card-title>Selección favorita</ion-card-title>
+                    </ion-card-header>
+
+                    <ion-card-content id="estadisticaSeleccion">
+
+                    </ion-card-content>
+                </ion-card>
+
+                <ion-card>
+                    <ion-card-header>
+                        <ion-card-title>Tipo de jugadores</ion-card-title>
+                    </ion-card-header>
+
+                    <ion-card-content id="estadisticaTipo">
+
+                    </ion-card-content>
+                </ion-card>
+
+            </ion-content>
+
+        </page-estadisticas>
+
+        <!-- MAPA -->
+
+        <page-mapa class="ion-page" id="pantalla-mapa">
+
+            <ion-header>
+
+                <ion-toolbar color="primary">
+
+                    <ion-buttons slot="start">
+                        <ion-menu-button></ion-menu-button>
+                    </ion-buttons>
+
+                    <ion-title>Mapa</ion-title>
+
+                </ion-toolbar>
+
+            </ion-header>
+
+            <ion-content>
+
+                <div id="map"></div>
+
+            </ion-content>
+
+        </page-mapa>
+
+    </ion-app>
+
+    <script src="js/codigo.js"></script>
+
+</body>
+
+</html>
