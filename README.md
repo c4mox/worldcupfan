@@ -8,7 +8,7 @@
 
 ## Android APK
 
-[Download APK](apk/WorldCupFan.apk)
+[Download WorldCupFan APK](worldcupfan.apk)
 
 ## Technologies
 
