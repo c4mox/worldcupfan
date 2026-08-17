@@ -1,12 +1,16 @@
 # WorldCupFan
 
-Aplicación móvil desarrollada con Ionic y JavaScript como proyecto académico.
+> Mobile World Cup application built with Ionic and JavaScript.
 
-## Descripción
+## Live Demo
 
-WorldCupFan permite consultar y gestionar información relacionada con jugadores del Mundial, con autenticación de usuarios, favoritos, estadísticas, mapas interactivos y una funcionalidad de análisis de sentimiento mediante GenAI.
+[Open WorldCupFan](https://c4mox.github.io/worldCupFan/)
 
-## Tecnologías
+## Android APK
+
+[Download WorldCupFan APK](worldcupfan.apk)
+
+## Technologies
 
 - JavaScript
 - Ionic
@@ -16,23 +20,13 @@ WorldCupFan permite consultar y gestionar información relacionada con jugadores
 - Leaflet
 - GenAI
 
-## Funcionalidades
+## Features
 
-- Registro e inicio de sesión
-- Autenticación mediante token
-- Gestión de jugadores favoritos
-- Consulta de información mediante API REST
-- Estadísticas
-- Mapa interactivo con Leaflet
-- Análisis de sentimiento mediante GenAI
-- Aplicación Android mediante APK
-
-## Ejecución
-
-El proyecto puede ejecutarse como aplicación web/Ionic según la configuración incluida en el repositorio.
-
-La carpeta de distribución Android contiene una versión APK del proyecto.
-
-## Proyecto académico
-
-Desarrollado como parte de la formación en desarrollo de software.
+- User registration and login
+- Token-based authentication
+- Player management
+- Favorite players
+- Player statistics
+- Interactive maps with Leaflet
+- REST API integration
+- Sentiment analysis using GenAI
